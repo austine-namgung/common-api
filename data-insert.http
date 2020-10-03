@@ -1,0 +1,51 @@
+POST http://localhost:9002/common/data-insert
+Content-Type: application/json
+
+
+
+[
+	{"codeId":"C01","codeName":"Sedan", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C02","codeName":"Coupe", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C03","codeName":"Hatchback, Sedan", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C04","codeName":"SUV", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C05","codeName":"Hatchback", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C06","codeName":"Wagon, Sedan", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C07","codeName":"Sedan, Wagon", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C08","codeName":"Sedan, Hatchback", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C09","codeName":"Sedan, Coupe, Hatchback", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C10","codeName":"Van/Minivan", "codeType":"T01", "codeTypeName":"Category"},
+	{"codeId":"C11","codeName":"Sedan, Hatchback, Coupe", "codeType":"T01", "codeTypeName":"Category"},
+
+
+	{"codeId":"M01","codeName":"Sonata","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M02","codeName":"Genesis Coupe","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M03","codeName":"Genesis","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M04","codeName":"Accent","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M05","codeName":"Elantra","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M06","codeName":"Tucson","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M07","codeName":"Sonata Plug-in Hybrid","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M08","codeName":"Veracruz","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M09","codeName":"Ioniq Electric","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M10","codeName":"Kona","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M11","codeName":"Santa Fe","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M12","codeName":"Equus","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M13","codeName":"Excel","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M14","codeName":"Ioniq Plug-in Hybrid","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M15","codeName":"Elantra GT","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M16","codeName":"Santa Fe Sport","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M17","codeName":"XG300","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M18","codeName":"Azera","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M19","codeName":"Veloster","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M20","codeName":"Santa Fe XL","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M21","codeName":"XG350","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M22","codeName":"Tiburon","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M23","codeName":"Tucson Fuel Cell","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M24","codeName":"Sonata Hybrid","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M25","codeName":"Scoupe","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M26","codeName":"Ioniq Hybrid","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M27","codeName":"Kona Electric","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M28","codeName":"Entourage","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M29","codeName":"NEXO","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M30","codeName":"Palisade","codeType":"T02", "codeTypeName":"Model"},
+	{"codeId":"M31","codeName":"Venue","codeType":"T02", "codeTypeName":"Model"}
+]

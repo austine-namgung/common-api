@@ -1,0 +1,12 @@
+GET http://localhost:9002/api/common/categories
+
+###
+
+GET http://localhost:9002/api/common/categories/C03
+
+###
+GET http://localhost:9002/api/common/models
+
+###
+
+GET http://localhost:9002/api/common/models/M10
