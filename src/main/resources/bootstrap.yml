@@ -1,0 +1,13 @@
+
+
+spring: 
+  profiles:
+    active: local
+  application:
+    name: common-api
+  cloud:
+    config:
+      uri: http://root:1234@localhost:8888
+
+
+
