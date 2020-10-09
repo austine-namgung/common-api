@@ -37,5 +37,10 @@ spring:
     port: 6379
     host: 127.0.0.1
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
 
     
