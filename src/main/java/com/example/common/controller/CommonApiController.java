@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import com.example.common.model.Code;
 import com.example.common.model.ResultMessage;
 import com.example.common.repository.CommonRepository;
+import com.example.common.utils.RedisManager;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -27,15 +28,15 @@ import lombok.extern.slf4j.Slf4j;
 public class CommonApiController {
     private final CommonRepository repository;
     private final static String CATEGORY_TYPE = "T01";
-    private final static String MODEL_TYPE = "T02";
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final static String MODEL_TYPE = "T02";  
+      
+    private final RedisManager<Code> redisManager;
 
-    @GetMapping("/categories")
-    
+    @GetMapping("/categories")    
     public List<Code> searchCategoryAll(){
         log.info("============check1==searchCategoryAll====");
-        ValueOperations<String, Object> vop = redisTemplate.opsForValue();
-        List<Code> categoryList  = (List<Code>) vop.get("common::category-all");
+        
+        List<Code> categoryList  = redisManager.getListValue("common::category-all");
         if(categoryList !=null){
             log.info("============check2==redis-hit====");
             return categoryList;
@@ -44,7 +45,7 @@ public class CommonApiController {
 
         log.info("============check3==db-search====");
 
-        vop.set("common::category-all", categoryList, 1, TimeUnit.MINUTES);
+        redisManager.putList("common::category-all", categoryList, 10, TimeUnit.MINUTES);
         return categoryList;
 
     }
@@ -59,15 +60,15 @@ public class CommonApiController {
     @GetMapping("/models")
     public List<Code> searchModelAll(){
         log.info("============check1==searchModelAll====");
-        ValueOperations<String, Object> vop = redisTemplate.opsForValue();
-        List<Code> modelList  = (List<Code>) vop.get("common::model-all");
+        
+        List<Code> modelList  = redisManager.getListValue("common::model-all");
         if(modelList !=null){
             log.info("============check2==cache hitttttt====");
             return modelList;
         }
         log.info("============check3==search DB ====");
         modelList = repository.findByCodeType(MODEL_TYPE);
-        vop.set("common::model-all", modelList, 1, TimeUnit.MINUTES);
+        redisManager.putList("common::model-all", modelList, 20, TimeUnit.MINUTES);
         return modelList;
 
     }
