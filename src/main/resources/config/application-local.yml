@@ -5,20 +5,20 @@
 server:
  port: 9002
 
- 
+
 spring:
-  profiles: local  
+  profiles: local
 
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/demo_common?autoReconnect=true&useUnicode=true&characterEncoding=utf8
     username: demo_common
     password: 1234
-    hikari: 
+    hikari:
       pool-name: hikari-cp
       maximum-pool-size: 30
       minimum-idle: 2
-      data-source-properties: 
+      data-source-properties:
           cachePrepStmts: true
           prepStmtCacheSize: 250
           prepStmtCacheSqlLimit: 2048
@@ -27,7 +27,7 @@ spring:
   jpa:
     hibernate:
         ddl-auto: update
-        
+
   redis:
     lettuce:
       pool:
@@ -36,6 +36,23 @@ spring:
         min-idle: 2
     port: 6379
     host: 127.0.0.1
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: log
+    template:
+      default-topic: test-data
 
 
-    
+
+springdoc:
+  version: '0.0.1'
+  api-docs:
+    groups:
+      enabled: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    path: /swagger-ui.html
+    displayRequestDuration: true
+    groups-order: DESC
