@@ -35,7 +35,7 @@ spring:
         max-idle: 10
         min-idle: 2
     port: 6379
-    host: host.docker.internal
-
+    # host: http://host.docker.internal
+    host: 192.168.219.100
 
     
