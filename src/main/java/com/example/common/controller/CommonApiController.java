@@ -9,8 +9,6 @@ import com.example.common.model.ResultMessage;
 import com.example.common.repository.CommonRepository;
 import com.example.common.utils.RedisManager;
 
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +35,12 @@ public class CommonApiController {
       
     private final RedisManager<Code> redisManager;
 
-    @GetMapping("/categories")    
+    @Operation(summary = "카테고리 전부를 가져온다")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "카테고리 전부를 가져옴",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = List.class)) }) })
+    @GetMapping("/categories")   
     public List<Code> searchCategoryAll(){
         log.info("============check1==searchCategoryAll====");
         
@@ -50,6 +58,11 @@ public class CommonApiController {
 
     }
 
+    @Operation(summary = "카테고리 코드 ID 로 코드의 상세내용을 가져온다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "코드를 가져옴",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Code.class)) }) })
     @GetMapping("/categories/{codeId}")
     public Code  searchCategory(@PathVariable String codeId){
 
@@ -57,6 +70,11 @@ public class CommonApiController {
         return category;
     }
 
+    @Operation(summary = "모델 전부를 가져온다")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "모델 전부를 가져옴",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = List.class)) }) })
     @GetMapping("/models")
     public List<Code> searchModelAll(){
         log.info("============check1==searchModelAll====");
@@ -73,6 +91,11 @@ public class CommonApiController {
 
     }
 
+    @Operation(summary = "모델 코드 ID 로 코드의 상세내용을 가져온다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "코드를 가져옴",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Code.class)) }) })
     @GetMapping("/models/{codeId}")
     public Code  searchModel(@PathVariable String codeId){
 

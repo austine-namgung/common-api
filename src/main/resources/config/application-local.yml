@@ -37,5 +37,17 @@ spring:
     port: 6379
     host: 127.0.0.1
 
+springdoc:
+  version: '0.0.1'
+  api-docs:
+    groups:
+      enabled: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    path: /swagger-ui.html
+    displayRequestDuration: true
+    groups-order: DESC
+
 
     
