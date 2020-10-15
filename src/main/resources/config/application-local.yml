@@ -36,12 +36,12 @@ spring:
         min-idle: 2
     port: 6379
     host: 127.0.0.1
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: log
-    template:
-      default-topic: test-data
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: log
+#    template:
+#      default-topic: test-data
 
 
 

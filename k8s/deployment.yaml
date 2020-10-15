@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-api
+  labels:
+    app: common-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: common-api
+  template:
+    metadata:
+      labels:
+        app: common-api
+    spec:
+      containers:
+        - name: common-api
+          image: stuie/common:latest
+          ports:
+            - containerPort: 9002

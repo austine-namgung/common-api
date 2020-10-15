@@ -1,10 +1,12 @@
 #FROM java:8-jdk-alpine
-FROM openjdk:8
+FROM openjdk:8-alpine
 
-COPY target/*.jar /opt/app.jar
+ENV TZ=Asia/Seoul
 
-WORKDIR /opt
+COPY target/common-api-0.0.1-SNAPSHOT.jar /opt/app.jar
+
+WORKDIR /app
 
 EXPOSE 9001
 
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=local", "app.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "app.jar"]
