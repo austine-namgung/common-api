@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -102,6 +103,19 @@ public class CommonApiController {
         Code model = repository.findByCodeIdAndCodeType(codeId, MODEL_TYPE);
         return model;
     }
+
+    @GetMapping("/circuite")
+    public String  circuite(@RequestParam String type) throws Exception {
+
+        if("error".equals(type)){
+            log.info("========일부러 에러 발생 =======");
+            throw new Exception("generate error");
+        }
+        log.info("========정상 =======");
+        return "정상 ";
+        
+    }
+
 
     
     private ResponseEntity<ResultMessage> getResponseEntity(int result) {

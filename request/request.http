@@ -14,9 +14,14 @@ GET http://localhost:9002/api/common/models/M10
 
 ###
 ## k8s
-GET http://localhost:9720/api/common/categories
+GET http://common-api.demo.com::9720/api/common/categories
 
 ###
 ## k8s
 ###
-GET http://localhost:9720/api/common/models
+GET http://common-api.demo.com::9720/api/common/models
+
+###
+
+
+GET http://common-api.demo.com:9720/api/common/circuite?type=error
