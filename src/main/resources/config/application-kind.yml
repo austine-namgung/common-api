@@ -35,8 +35,7 @@ spring:
         max-idle: 10
         min-idle: 2
     port: 6379
-    # host: http://host.docker.internal
-    host: 192.168.219.100
+    host: host.docker.internal
 
 springdoc:
   version: '0.0.1'
