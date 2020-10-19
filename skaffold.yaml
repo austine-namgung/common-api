@@ -1,0 +1,41 @@
+apiVersion: skaffold/v2alpha4
+kind: Config
+# Enforce SKaffold to use Jib
+build:
+# Generated artifact
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VER}}"
+  artifacts:
+    # - image: saturn203/simple-api
+    # - image: saturn203/simple-api
+    - image: common-api
+
+# Use jib
+      jib:
+        args:
+        - -DskipTests
+
+
+# Execute deployment.yml
+deploy:
+  kubectl:
+    manifests:
+      - k8s/common-api.yaml
+
+profiles:
+  - name: kind
+    build:
+      local:
+         push: false
+      artifacts:
+       - image: common-api
+         jib:
+           args:
+           - -DskipTests
+           - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind"
+    deploy:
+      kubectl:
+       manifests:
+         - k8s/*.yaml
+
