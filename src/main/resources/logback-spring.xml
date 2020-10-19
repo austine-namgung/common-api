@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true"> <!-- default 1 minutes -->
-    <property name="LOG_FILE" value="/logs/common-api" />
+    
+    <springProfile name="local">
+		<property name="LOG_FILE" value="../logs/common-api" />
+	</springProfile>
+	<springProfile name="kind">
+		<property name="LOG_FILE" value="/logs/common-api" />
+	</springProfile>
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>			
