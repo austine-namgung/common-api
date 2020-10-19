@@ -43,18 +43,18 @@ public class CommonApiController {
                             schema = @Schema(implementation = List.class)) }) })
     @GetMapping("/categories")   
     public List<Code> searchCategoryAll(){
-        log.info("============check1==searchCategoryAll====");
+        // log.info("=====[category]=======check1==searchCategoryAll====");
         
         List<Code> categoryList  = redisManager.getListValue("common::category-all");
         if(categoryList !=null){
-            log.info("============check2==redis-hit====");
+            log.info("=====[Redis Hit]=======category====");
             return categoryList;
         }
         categoryList = repository.findByCodeType(CATEGORY_TYPE);
 
-        log.info("============check3==db-search====");
 
-        redisManager.putList("common::category-all", categoryList, 10, TimeUnit.MINUTES);
+        log.info("****************[DB search]*******category******************************");
+        redisManager.putList("common::category-all", categoryList, 20, TimeUnit.SECONDS);
         return categoryList;
 
     }
@@ -78,16 +78,16 @@ public class CommonApiController {
                             schema = @Schema(implementation = List.class)) }) })
     @GetMapping("/models")
     public List<Code> searchModelAll(){
-        log.info("============check1==searchModelAll====");
+        // log.info("====[Model]========check1==searchModelAll====");
         
         List<Code> modelList  = redisManager.getListValue("common::model-all");
         if(modelList !=null){
-            log.info("============check2==cache hitttttt====");
+            log.info("==========[Redis Hit]=======model===");
             return modelList;
         }
-        log.info("============check3==search DB ====");
+        log.info("***********[DB search]*******model*************************************");
         modelList = repository.findByCodeType(MODEL_TYPE);
-        redisManager.putList("common::model-all", modelList, 20, TimeUnit.MINUTES);
+        redisManager.putList("common::model-all", modelList, 5, TimeUnit.SECONDS);
         return modelList;
 
     }
