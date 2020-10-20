@@ -42,9 +42,15 @@ public class CommonApiController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = List.class)) }) })
     @GetMapping("/categories")   
-    public List<Code> searchCategoryAll(){
+    public List<Code> searchCategoryAll(@RequestParam(value="sleepYn",defaultValue = "N" ) String sleepYn){
         log.info("============check1==searchCategoryAll====");
-        
+        if("Y".equals(sleepYn)){
+            try{
+                Thread.sleep(3000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
         List<Code> categoryList  = redisManager.getListValue("common::category-all");
         if(categoryList !=null){
             log.info("============check2==redis-hit====");
