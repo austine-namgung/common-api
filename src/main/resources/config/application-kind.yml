@@ -16,7 +16,7 @@ spring:
     password: 1234
     hikari: 
       pool-name: hikari-cp
-      maximum-pool-size: 30
+      maximum-pool-size: 10
       minimum-idle: 3
       data-source-properties: 
           cachePrepStmts: true
@@ -24,9 +24,9 @@ spring:
           prepStmtCacheSqlLimit: 2048
           useServerPrepStmts: true
 
-  jpa:
-    hibernate:
-        ddl-auto: update
+  # jpa:
+  #   hibernate:
+  #       ddl-auto: update
         
   redis:
     lettuce:
