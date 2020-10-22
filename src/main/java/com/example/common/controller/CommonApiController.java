@@ -58,6 +58,7 @@ public class CommonApiController {
         return categoryList;
 
     }
+    
 
     @Operation(summary = "카테고리 코드 ID 로 코드의 상세내용을 가져온다.")
     @ApiResponses(value = {
