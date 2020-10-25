@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by jslim
  */
-@Component
+@Configuration
 public class OpenApiConfig {
 
 
