@@ -38,4 +38,10 @@ profiles:
       kubectl:
        manifests:
          - k8s/*.yaml
+portForward:
+- resourceType: deployment
+  resourceName: common-api
+  namespace: common
+  port: 9002
+  localPort: 9002
 
